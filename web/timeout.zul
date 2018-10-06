@@ -1,0 +1,5 @@
+<window width="80%" title="Su sesión finalizó" border="normal">
+	<vbox>
+Su sesión ha finalizado debido a un largo periodo de tiempo sin actividad. Por favor, recargue la página.
+	</vbox>
+</window>

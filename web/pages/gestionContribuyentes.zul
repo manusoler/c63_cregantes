@@ -1,0 +1,63 @@
+<?xel-method prefix="c" name="formatImporte" class="com.c63.comun.FormatElNumber" signature="java.lang.String formatImporte(double)"?>
+<zk>
+	<window id="winGestionContribuyentes" title="Gestión de Contribuyentes - ${arg.idContribuyente}" border="normal" mode="modal" width="80%"
+		apply="com.c63.controllers.GestionContribuyentes_Controlador">
+		<div width="100%">
+			<vbox spacing="10px">
+				<groupbox id="group" mold="3d" width="100%">
+					<caption image="/imagenes/recibos.gif" />
+					<grid id="datos_box">
+						<columns sizable="true" style="padding:0 0;">
+							<column width="7%" style="font-size: 10px;font-weight: bold;" />
+							<column width="25%" style="font-size: 10px;font-weight: bold;" />
+							<column width="7%" style="font-size: 11px;font-weight: bold;" />
+							<column width="25%" style="font-size: 10px;font-weight: bold;" />
+							<column width="7%" style="font-size: 11px;font-weight: bold;" />
+							<column width="25%" style="font-size: 10px;font-weight: bold;" />
+						</columns>
+						<rows>
+							<row>
+								<label value="Id Contri:" style="font-style: italic; font-size: 12px; font-weight: bold; color: #0E3A99;" />
+								<textbox id="txtId" maxlength="6" style="font-weight: bold;" width="95%" disabled="true" />
+							</row>
+							<row>
+								<label value="CIF-NIF:" style="font-style: italic; font-size: 12px; font-weight: bold; color: #0E3A99;" />
+								<textbox id="txtCifNif" maxlength="9" style="font-weight: bold;" width="95%"  />
+								<label value="Nombre:" style="font-style: italic; font-size: 12px; font-weight: bold; color: #0E3A99;" />
+								<cell colspan="3">
+									<textbox id="txtNombreRazon" maxlength="100" style="font-weight: bold;" width="95%"  />
+								</cell>
+							</row>
+							<row>
+								<label value="Poblacion:" style="font-style: italic; font-size: 12px; font-weight: bold; color: #0E3A99;" />
+								<textbox id="txtPoblacion" maxlength="50" style="font-weight: bold;" width="95%"  />
+								<label value="Provincia:" style="font-style: italic; font-size: 12px; font-weight: bold; color: #0E3A99;" />
+								<textbox id="txtProvincia" maxlength="50" style="font-weight: bold;" width="95%"  />
+								<label value="CP:" style="font-style: italic; font-size: 12px; font-weight: bold; color: #0E3A99;" />
+								<textbox id="txtCP" maxlength="5" style="font-weight: bold;" width="95%"  />
+							</row>
+							<row>
+								<label value="Domicilio:" style="font-style: italic; font-size: 12px; font-weight: bold; color: #0E3A99;" />
+								<cell colspan="5">
+									<textbox id="txtDireccion" maxlength="100" style="font-weight: bold;" width="95%"  />
+								</cell>
+							</row>
+							<row>
+								<label value="Telefono:" style="font-style: italic; font-size: 12px; font-weight: bold; color: #0E3A99;" />
+								<textbox id="txtTelefono" maxlength="20" style="font-weight: bold;" width="95%"  />
+								<label value="Email:" style="font-style: italic; font-size: 12px; font-weight: bold; color: #0E3A99;" />
+								<textbox id="txtEmail" maxlength="45" style="font-weight: bold;" width="95%"  />
+							</row>
+						</rows>
+					</grid>
+					<hbox pack="center" width="100%">
+						<button id="btnModificar" label="Modificar" image="/imagenes/edit.png" />
+						<button id="btnGrabarNuevo" label="Grabar Nuevo" image="/imagenes/ok.jpg" />
+						<button id="btnGrabarModificacion" label="Grabar Modificacion" image="/imagenes/ok.jpg" />
+						<button id="btnCancelar" label="Cancelar" image="/imagenes/close.png" />
+					</hbox>
+				</groupbox>
+			</vbox>
+		</div>
+	</window>
+</zk>

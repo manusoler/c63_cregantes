@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="listadoApremio" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="2a129cdc-d30c-4952-aa43-1cecd0851ae1">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="P_LOTE_APREMIO" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select rec.*, con.*, ent.*
+from recibos rec, contribuyentes con, entidades ent
+where
+ent.codigoentidad = rec.codigoentidad and
+rec.id_contribuyente = con.id_contribuyente and
+rec.lote_apremio = $P{P_LOTE_APREMIO}
+order by con.nombre_razon, con.cif_nif]]>
+	</queryString>
+	<field name="id_recibo" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="num_regante" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cod_objeto" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="domicilio_objeto" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="concepto" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ano" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="periodo" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="texto_periodo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="f_asamblea" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="principal" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="recargo" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[RECARGO APREMIO (5% o 10%) en función de si ha sido o no notificado]]></fieldDescription>
+	</field>
+	<field name="intereses" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="costas" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ingresos_cuenta" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[ingresos en cuenta]]></fieldDescription>
+	</field>
+	<field name="estado" class="java.lang.String">
+		<fieldDescription><![CDATA[P - Pdte, C- Cobrado, A - Anulado]]></fieldDescription>
+	</field>
+	<field name="f_estado" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fase" class="java.lang.String">
+		<fieldDescription><![CDATA[V - Voluntario, E - Ejecutivo, A - Apremio, X - Expendiente]]></fieldDescription>
+	</field>
+	<field name="f_providencia" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="lote_apremio" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="estado_notificacion" class="java.lang.String">
+		<fieldDescription><![CDATA[0 - NO NOTIFICADO
+1 - NOTIFICADO
+2 - NOTIF. DEVUELTA
+3 - NOTIF. BOLETÍN]]></fieldDescription>
+	</field>
+	<field name="f_notificacion" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="f_devolucion" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="lote_boletin" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="observaciones" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="codigoentidad" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="id_contribuyente" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cif_nif" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nombre_razon" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="domicilio" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="poblacion" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cp" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="provincia" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="telefono" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="email" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nombreentidad" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="domicilioentidad" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="localidadentidad" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cpostalentidad" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="provinciaentidad" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="telefonoentidad" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="emailentidad" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nifentidad" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="6" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="66" splitType="Stretch">
+			<rectangle>
+				<reportElement x="294" y="1" width="258" height="16" uuid="0a4cac96-1e89-44e1-9080-0e4b14492a94"/>
+			</rectangle>
+			<textField>
+				<reportElement x="294" y="20" width="257" height="13" uuid="f12f58c8-3a77-465f-b59d-d85a17012c95"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nifentidad}+" - "+$F{nombreentidad}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="294" y="32" width="256" height="14" uuid="2210f67b-1963-4bd4-9a5d-1110a8e7caca"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{domicilioentidad}+" "+$F{localidadentidad}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="295" y="46" width="254" height="14" uuid="fb4d8a84-a6ed-49a8-8e3d-69088e54deec"/>
+				<textFieldExpression><![CDATA["("+$F{cpostalentidad}+") "+$F{provinciaentidad}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="53" y="26" width="219" height="20" uuid="1b8cd6fb-1563-466a-be25-4584cc6976fc"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="12" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[LISTADO DE DEUDORES ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="296" y="2" width="254" height="14" backcolor="#CCCCCC" uuid="0d6c27c4-9677-4372-b1d2-2e948110b18c"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ORGANO EMISOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="88" y="47" width="66" height="12" uuid="44ca3f6d-310a-4e66-91b0-fcccdc8666c5"/>
+				<textElement>
+					<font fontName="Arial" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Exp. Apremio:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="157" y="47" width="100" height="12" uuid="87697ea6-e0af-4f8e-a473-9e544fbdb8e2"/>
+				<textElement>
+					<font fontName="Arial" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{lote_apremio}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="22" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="5" width="200" height="14" backcolor="#CCCCCC" uuid="634690ca-9103-49ed-b006-cc9b16ea10d9"/>
+				<textElement>
+					<font fontName="Arial" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[NIF - Nombre Deudor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="201" y="6" width="40" height="14" backcolor="#CCCCCC" uuid="9532af4d-491b-4a89-8550-2c80a5fff35d"/>
+				<textElement>
+					<font fontName="Arial" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[N.Reg]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="244" y="6" width="127" height="12" backcolor="#CCCCCC" uuid="04ba98e5-f387-403b-8559-0e828694f56a"/>
+				<textElement>
+					<font fontName="Arial" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Finca - Domicilio ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="376" y="5" width="110" height="12" backcolor="#CCCCCC" uuid="76f6d241-f1a3-4dc8-958e-802f8d3b4786"/>
+				<textElement>
+					<font fontName="Arial" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Concepto-Año-Per]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="488" y="5" width="65" height="12" backcolor="#CCCCCC" uuid="73bb4c95-c288-44d5-a186-d2d7f295f495"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Importe]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="19" width="551" height="1" uuid="13a3597d-73b5-4865-a19b-a63138cc1725"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="28" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="71" height="12" uuid="1fe89fd2-639b-46a1-a5c0-100e4d18b565"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cif_nif}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="71" y="0" width="129" height="12" uuid="1fde22ea-917d-4d91-bbc4-8c38866a9529"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombre_razon}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="200" y="0" width="40" height="12" uuid="d6bd1a81-3427-40bc-afa3-38f6cd46df27"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{num_regante}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="242" y="0" width="49" height="12" uuid="09198152-d5f7-4955-96ce-986e19f48e61"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cod_objeto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="294" y="2" width="77" height="12" uuid="9774e984-ead0-464b-b7be-655f44610023"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{domicilio_objeto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="374" y="2" width="64" height="12" uuid="0ecc03de-3174-479f-8234-204da6f0a36d"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{concepto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="441" y="2" width="22" height="12" uuid="2575470d-dd15-470f-8475-5c858b53a790"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ano}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="466" y="2" width="20" height="12" uuid="46f3a27e-1a48-4cf1-a22f-9db2ee904656"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{periodo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="374" y="15" width="112" height="12" uuid="f3adc01e-abc3-4a4a-9cde-de3a53ede332"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{texto_periodo}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;-#,##0.00" isBlankWhenNull="true">
+				<reportElement x="491" y="3" width="60" height="12" uuid="fd6f8fba-1725-40a9-8312-98871c328b8f"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{principal}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="2" y="26" width="549" height="1" uuid="ad045d4e-a4f8-4a5f-a6c4-18d282c59479"/>
+			</line>
+			<textField>
+				<reportElement x="2" y="13" width="369" height="12" uuid="427c4fa5-0e31-4f36-bfd0-087525f0101c"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{domicilio}+" "+$F{poblacion}+" ("+$F{cp}+") "+$F{provincia}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="7" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="19" splitType="Stretch">
+			<textField>
+				<reportElement x="430" y="0" width="82" height="13" uuid="959bd8aa-35f2-4c98-875b-e7ad39a9bd18"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Pagina: "+$V{PAGE_NUMBER}+" de "]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd MMMMM yyyy">
+				<reportElement x="2" y="1" width="242" height="12" uuid="522ddc16-36f6-4ddf-b7bd-48bb097e6749"/>
+				<textElement>
+					<font fontName="Arial" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="512" y="0" width="38" height="13" uuid="b7068f4d-18b1-40a9-beb6-dd279d364eda"/>
+				<textElement>
+					<font fontName="Arial" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" "+$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="2" splitType="Stretch"/>
+	</summary>
+</jasperReport>

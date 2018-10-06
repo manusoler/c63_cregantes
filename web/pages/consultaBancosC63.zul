@@ -1,0 +1,45 @@
+<!-- <?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="childwindow" ?> -->
+<zk>
+	<window id="winConsultaBancosC63" title="Consulta de Bancos para C63" border="normal" mode="modal"
+		apply="com.c63.controllers.ConsultaBancosC63_Controlador" width="90%" height="90%">
+
+		<!-- <style src="/${name}/css/Style.css" />  -->
+		
+		<div width="100%" height="100%">
+			<vbox spacing="10px" height="100%">
+				<groupbox id="groupProcesos" mold="3d" width="100%" vflex="1">
+					<caption image="/imagenes/recibos.gif" label="Lista de Bancos C63" />
+					<listbox id="lbBancosC63" multiple="false" checkmark="true" mold="paging" pageSize="5"
+						oddRowSclass="myodd" emptyMessage="No se han encontrado Bancos C63" style="padding:0 0;" vflex="1">
+						<listhead menupopup="auto" sizable="true">
+							<listheader width="5%" />
+							<listheader label="Entidad" width="10%" sort="auto(codigoentidad)" />
+							<listheader label="Banco" width="10%" sort="auto(c63banco)" />
+							<listheader label="Sucursal" width="10%" sort="auto(c63sucursal)" />
+							<listheader label="Nombre" width="35%" sort="auto(c63nombre)" />
+							<listheader label="Cod INE" width="10%" sort="auto(c63codine)" />
+							<listheader label="IBAN" width="20%" sort="auto(c63iban)" />
+						</listhead>
+						<template name="model">
+							<listitem>
+								<listcell style="padding:0 0;"></listcell>
+								<listcell label="${each.codigoentidad}" style="font-size: 11px;"></listcell>
+								<listcell label="${each.c63banco}" style="font-size: 11px;"></listcell>
+								<listcell label="${each.c63sucursal}" style="font-size: 11px;"></listcell>
+								<listcell label="${each.c63nombre}" style="font-size: 11px;"></listcell>
+								<listcell label="${each.c63codine}" style="font-size: 11px;"></listcell>
+								<listcell label="${each.c63iban}" style="font-size: 11px;"></listcell>
+							</listitem>
+						</template>
+					</listbox>
+				</groupbox>
+				<hbox pack="center" width="100%">
+					<button id="btnNuevo" label="Nuevo" image="/imagenes/doc.png"/>
+					<button id="btnEliminar" label="Eliminar" image="/imagenes/delete.gif" disabled="true" />
+					<button id="btnDetalle" label="Detalle" image="/imagenes/detalle.png" disabled="true" />
+					<button id="btnCerrar" label="Cerrar" image="/imagenes/close.png" />
+				</hbox>
+			</vbox>
+		</div>
+	</window>
+</zk>

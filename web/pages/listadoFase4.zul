@@ -1,0 +1,57 @@
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c"?>
+<!-- <?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="childwindow" ?> -->
+<zk>
+	<window id="winListadoFase4" title="Consulta de Fase 4" border="normal" mode="modal"
+		apply="com.c63.controllers.ListadoFase4_Controlador" width="90%" height="80%">
+
+		<!-- <style src="/${name}/css/Style.css" />  -->
+		
+		<div width="100%" height="100%">
+			<vbox spacing="10px" height="100%">
+				<groupbox mold="3d" width="100%">
+					<caption image="" label="Archivo Fase 4" />
+					<hbox width="100%">
+						<button id="btnSelTxt" label="Seleccionar Archivo" upload="true,maxsize=-1,multiple=false"/>
+						<label id="lblNombreFichero" value="" />
+					</hbox>
+					<hbox pack="center" width="100%">
+						<button id="btnGenerar" label="Listar Fase 4" image="/imagenes/ok.jpg" />
+						<button id="btnCancelar" label="Cancelar" image="/imagenes/close.png" />
+					</hbox>
+				</groupbox>
+				<groupbox id="group" mold="3d" width="100%">
+					<caption image="/imagenes/recibos.gif" label="Lista de Contribuyentes" />
+					<listbox id="lbFase" multiple="false" checkmark="false" mold="paging" pageSize="5"
+						oddRowSclass="myodd" emptyMessage="No se han encontrado embargos" style="padding:0 0;">
+						<listhead menupopup="auto" sizable="true">
+							<listheader label="" width="10%" sort="" />
+							<listheader label="NIF" width="20%" sort="auto(cifNif)" />
+							<listheader label="Nombre" width="40%" sort="auto(nombreRazon)" />
+							<listheader label="Imp.Embargar" width="10%" sort="auto(domicilio)" />
+							<listheader label="Imp.Bloqueado" width="10%" sort="auto(cp)" />
+							<listheader label="" width="10%" sort="" />
+						</listhead>
+						<template name="model">
+							<listitem>
+								<listcell label="" style="font-size: 11px;"></listcell>
+								<listcell label="${each.cifNif}" style="font-size: 11px;"></listcell>
+								<listcell label="${each.nombreRazon}" style="font-size: 11px;"></listcell>
+								<listcell label="${c:formatNumber(each.impEmbargar, '#,###.##')}" style="font-size: 11px;"></listcell>
+								<listcell label="${c:formatNumber(each.impEmbargado, '#,###.##')}" style="font-size: 11px;"></listcell>
+								<listcell label="" style="font-size: 11px;"></listcell>
+							</listitem>
+						</template>
+					</listbox>
+				</groupbox>
+				<hbox pack="center" width="100%">
+					<label value="Total Contri:" style="font-style: italic; font-size: 12px; font-weight: bold; color: #0E3A99;" />
+					<textbox id="txtNumContri" readonly="true" style="font-weight: bold;" width="80px" />
+					<label value="Total Embargar:" style="font-style: italic; font-size: 12px; font-weight: bold; color: #0E3A99;" />
+					<textbox id="txtTotalEmbargar" readonly="true" style="font-weight: bold;" width="80px" />
+					<label value="Total Embargado:" style="font-style: italic; font-size: 12px; font-weight: bold; color: #0E3A99;" />
+					<textbox id="txtTotalEmbargado" readonly="true" style="font-weight: bold;" width="80px" />
+				</hbox>
+			</vbox>
+		</div>
+	</window>
+</zk>

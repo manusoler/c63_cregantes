@@ -1,0 +1,73 @@
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c"?>
+<!-- <?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="childwindow" ?> -->
+<zk>
+	<window id="winConsultaLoteNotif" title="Consulta de Lote de Notificación Apremio" border="normal" mode="modal"
+		apply="com.c63.controllers.ConsultaLoteNotif_Controlador" width="90%" height="90%">
+
+		<!-- <style src="/${name}/css/Style.css" />  -->
+		
+		<div width="100%" height="100%">
+			<vbox spacing="10px" height="100%" width="100%">
+				<groupbox mold="3d" width="100%">
+					<caption image="/imagenes/search.png" label="Filtro de búsqueda" />
+					<hbox pack="center" width="100%">
+						<label value="Lote Notificación:" style="font-style: italic; font-size: 12px; font-weight: bold; color: #0E3A99;" />
+						<textbox id="txtLote" maxlength="6" style="font-weight: bold;" width="80px" />
+					</hbox>
+					<hbox pack="center" width="100%" style="margin-top: 5px;">
+						<button id="btnBuscar" label="Buscar" image="/imagenes/search.png" />
+					</hbox>
+				</groupbox>
+				<groupbox id="group" mold="3d" width="100%">
+					<caption image="/imagenes/recibos.gif" label="Lista de Recibos" />
+					<listbox id="lbRecibos" multiple="false" checkmark="true" mold="paging" pageSize="5"
+						oddRowSclass="myodd" emptyMessage="No se han encontrado Recibos" style="padding:0 0;">
+						<listhead menupopup="auto" sizable="true">
+							<listheader width="3%" />
+							<listheader label="NIF" width="10%" sort="auto(contribuyente.cifNif)" />
+							<listheader label="Nombre" width="25%" sort="auto(contribuyente.nombreRazon)" />
+							<listheader label="Núm.Regante" width="7%" sort="auto(numRegante)" />
+							<listheader label="Cód.Obj" width="5%" sort="auto(codObjeto)" />
+							<listheader label="Estado" width="5%" sort="auto(estado)" />
+							<listheader label="Fase" width="5%" sort="auto(fase)" />
+							<listheader label="Concepto" width="10%" sort="auto(concepto)" />
+							<listheader label="Periodo" width="15%" sort="auto(textoPeriodo)" />
+							<listheader label="Imp.Total" width="5%" sort="auto(principal)" />
+							<listheader label="F.Notif" width="10%" sort="auto(fNotificacion)" />
+						</listhead>
+						<template name="model">
+							<listitem>
+								<listcell style="padding:0 0;"></listcell>
+								<listcell label="${each.contribuyente.cifNif}" style="font-size: 11px;"></listcell>
+								<listcell label="${each.contribuyente.nombreRazon}" style="font-size: 11px;"></listcell>
+								<listcell label="${each.numRegante}" style="font-size: 11px;"></listcell>
+								<listcell label="${each.codObjeto}" style="font-size: 11px;"></listcell>
+								<listcell label="${each.estado}" style="font-size: 11px;"></listcell>
+								<listcell label="${each.fase}" style="font-size: 11px;"></listcell>
+								<listcell label="${each.concepto}" style="font-size: 11px;"></listcell>
+								<listcell label="${each.textoPeriodo}" style="font-size: 11px;"></listcell>
+								<listcell label="${c:formatNumber(each.principal+each.recargo+each.intereses+each.costas-each.ingresosCuenta, '#,###.##')}" style="font-size: 11px;"></listcell>
+								<listcell label="${each.fNotificacion}" style="font-size: 11px;"></listcell>
+							</listitem>
+						</template>
+					</listbox>
+				</groupbox>
+				<hbox width="100%">
+					<hbox pack="left" hflex="1" width="50%"> 
+						<label value="Seleccionados:" style="font-size: 12px; font-weight: bold; color: #0E3A99;" />
+						<label id="lblSelect" style="font-size: 12px; font-weight: bold; color: #0E3A99;"  />
+					</hbox>
+					<hbox pack="right" hflex="1" width="50%"> 
+						<label value="Total Recibos:" style="font-size: 12px; font-weight: bold; color: #0E3A99;" />
+						<label id="lblTotal" style="font-size: 12px; font-weight: bold; color: #0E3A99;"  />
+					</hbox>
+				</hbox>
+				<hbox pack="center" width="100%">
+					<button id="btnNotif" label="Crear Notificación" image="/imagenes/doc.png" disabled="true"/>
+					<button id="btnMarcarNotif" label="Marcar Notificación" image="/imagenes/ok.jpg" disabled="true"/>
+					<button id="btnCerrar" label="Cerrar" image="/imagenes/close.png" />
+				</hbox>
+			</vbox>
+		</div>
+	</window>
+</zk>

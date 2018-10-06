@@ -1,0 +1,40 @@
+.breeze .complex-layout, .breeze .complex-layout .z-south, .breeze .complex-layout .z-west
+	{
+	background: #F7F7F7;
+}
+
+.z-borderlayout {
+	background: #FFFFFF
+}
+
+.complex-layout .z-north {
+	background: #008BB6;
+}
+
+img.complex-layout-header-img {
+	/*padding: 0 10px;*/
+}
+
+.complex-layout-header-label {
+	position: relative;
+	top: 0px;
+	padding-left: 10px;
+	font-size: 25px;
+	color: White;
+	font-weight: bold;
+}
+
+.inner-border, .inner-border .z-north, .inner-border .z-west, .inner-border .z-south, .inner-border .z-east {
+	background: #FFFFFF;
+}
+
+.dl-link {
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.vista {
+	background: #000000 repeat-x 0 0;
+	color: white;
+	padding-top: 7px;
+}

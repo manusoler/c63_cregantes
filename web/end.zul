@@ -1,0 +1,12 @@
+<zk>
+<window width="80%" title="Sesión finalizada" border="normal" onCreate='Clients.evalJavaScript("closeWindow()")'>
+	<vbox>Ha finalizado la sesión. Debe cerrar el navegador.</vbox>
+</window>
+
+<script type = "text/javascript"> 
+   function closeWindow(){ 
+        window.open('','_self',''); 
+        window.close();
+   } 
+</script>
+</zk>

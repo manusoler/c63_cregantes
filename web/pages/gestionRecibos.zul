@@ -1,0 +1,130 @@
+<?xel-method prefix="c" name="formatImporte" class="com.c63.comun.FormatElNumber" signature="java.lang.String formatImporte(double)"?>
+<zk>
+	<window id="winGestionRecibos" title="Gestión de Recibos - ${arg.idRecibo}" border="normal" mode="modal" width="95%"
+		apply="com.c63.controllers.GestionRecibos_Controlador">
+		<div width="100%">
+			<vbox spacing="10px">
+				<groupbox id="group" mold="3d" width="100%">
+					<caption image="/imagenes/recibos.gif" />
+					<grid id="datos_box">
+						<columns sizable="true" style="padding:0 0;">
+							<column width="7%" style="font-size: 10px;font-weight: bold;" />
+							<column width="25%" style="font-size: 10px;font-weight: bold;" />
+							<column width="7%" style="font-size: 11px;font-weight: bold;" />
+							<column width="25%" style="font-size: 10px;font-weight: bold;" />
+							<column width="7%" style="font-size: 11px;font-weight: bold;" />
+							<column width="25%" style="font-size: 10px;font-weight: bold;" />
+						</columns>
+						<rows>
+							<row>
+								<label value="Id:" style="font-style: italic; font-size: 12px; font-weight: bold; color: #0E3A99;" />
+								<textbox id="txtId" maxlength="6" style="font-weight: bold;" width="95%" disabled="true" />
+								<label value="Entidad:" style="font-style: italic; font-size: 12px; font-weight: bold; color: #0E3A99;" />
+								<listbox mold="select" id="lbCodigoEntidad" >
+									<template name="model">
+										<listitem value="${each.codigoentidad}" label="${each.codigoentidad}" />
+									</template>
+								</listbox>
+								<label value="Id. Contri:" style="font-style: italic; font-size: 12px; font-weight: bold; color: #0E3A99;" />
+								<textbox id="txtIdContri" maxlength="6" style="font-weight: bold;" width="95%" disabled="true" />
+							</row>
+							<row>
+								<label value="N.Regante:" style="font-style: italic; font-size: 12px; font-weight: bold; color: #0E3A99;" />
+								<textbox id="txtNumRegante" maxlength="4" style="font-weight: bold;" width="95%"  />
+								<label value="Cód.Objeto:" style="font-style: italic; font-size: 12px; font-weight: bold; color: #0E3A99;" />
+								<textbox id="txtCodObjeto" maxlength="50" style="font-weight: bold;" width="95%"  />
+								<label value="Dom.Objeto:" style="font-style: italic; font-size: 12px; font-weight: bold; color: #0E3A99;" />
+								<textbox id="txtDomObjeto" maxlength="50" style="font-weight: bold;" width="95%"  />
+							</row>
+							<row>
+								<label value="Concepto:" style="font-style: italic; font-size: 12px; font-weight: bold; color: #0E3A99;" />
+								<textbox id="txtConcepto" maxlength="45" style="font-weight: bold;" width="95%"  />
+								<label value="Año:" style="font-style: italic; font-size: 12px; font-weight: bold; color: #0E3A99;" />
+								<textbox id="txtAno" maxlength="4" style="font-weight: bold;" width="95%"  />
+								<label value="Periodo:" style="font-style: italic; font-size: 12px; font-weight: bold; color: #0E3A99;" />
+								<textbox id="txtPeriodo" maxlength="2" style="font-weight: bold;" width="95%"  />
+							</row>
+							<row>
+								<label value="Texto Periodo:" style="font-style: italic; font-size: 12px; font-weight: bold; color: #0E3A99;" />
+								<textbox id="txtTextoPeriodo" maxlength="30" style="font-weight: bold;" width="95%"  />
+								<label value="F.Asamblea:" style="font-style: italic; font-size: 12px; font-weight: bold; color: #0E3A99;" />
+								<datebox id="fAsamblea" />
+								<label value="Principal:" style="font-style: italic; font-size: 12px; font-weight: bold; color: #0E3A99;" />
+								<doublebox format="######.##" id="txtPrincipal" maxlength="9" style="font-weight: bold;" width="95%"  />
+							</row>
+							<row>
+								<label value="Recargo:" style="font-style: italic; font-size: 12px; font-weight: bold; color: #0E3A99;" />
+								<doublebox format="######.##" id="txtRecargo" maxlength="9" style="font-weight: bold;" width="95%"  />
+								<label value="Intereses:" style="font-style: italic; font-size: 12px; font-weight: bold; color: #0E3A99;" />
+								<doublebox format="######.##" id="txtIntereses" maxlength="9" style="font-weight: bold;" width="95%"  />
+								<label value="Costas:" style="font-style: italic; font-size: 12px; font-weight: bold; color: #0E3A99;" />
+								<doublebox format="######.##" id="txtCostas" maxlength="9" style="font-weight: bold;" width="95%"  />
+							</row>
+							<row>
+								<label value="Ing.Cuenta:" style="font-style: italic; font-size: 12px; font-weight: bold; color: #0E3A99;" />
+								<doublebox format="######.##" id="txtIngCuenta" maxlength="9" style="font-weight: bold;" width="95%"  />
+								<label value="Estado:" style="font-style: italic; font-size: 12px; font-weight: bold; color: #0E3A99;" />
+								<listbox mold="select" id="lbEstado" >
+									<listitem label="" value="" selected="true" />
+									<listitem label="PENDIENTE" value="P" />
+									<listitem label="COBRADO" value="C" />
+									<listitem label="ANULADO" value="A" />
+								</listbox>
+								<label value="F.Estado:" style="font-style: italic; font-size: 12px; font-weight: bold; color: #0E3A99;" />
+								<datebox id="fEstado" />
+							</row>
+							<row>
+								<label value="F.Providencia:" style="font-style: italic; font-size: 12px; font-weight: bold; color: #0E3A99;" />
+								<datebox id="fProvidencia" />
+								<label value="Lote Apremio:" style="font-style: italic; font-size: 12px; font-weight: bold; color: #0E3A99;" />
+								<textbox id="txtLoteApremio" maxlength="6" style="font-weight: bold;" width="95%"  />
+								<label value="Estado Notif.:" style="font-style: italic; font-size: 12px; font-weight: bold; color: #0E3A99;" />
+								<listbox mold="select" id="lbEstadoNotif" >
+									<listitem label="" value="" selected="true" />
+									<listitem label="NO NOTIFICADO" value="0" />
+									<listitem label="NOTIFICADO" value="1" />
+									<listitem label="NOTIF. DEVUELTA" value="2" />
+									<listitem label="NOTIF. BOLETÍN" value="3" />
+								</listbox>
+							</row>
+							<row>
+								<label value="Lote Notificación:" style="font-style: italic; font-size: 12px; font-weight: bold; color: #0E3A99;" />
+								<textbox id="txtLoteNotificacion" maxlength="6" style="font-weight: bold;" width="95%"  />
+								<label value="F.Notificación:" style="font-style: italic; font-size: 12px; font-weight: bold; color: #0E3A99;" />
+								<datebox id="fNotificacion" />
+								<label value="F.Devolución:" style="font-style: italic; font-size: 12px; font-weight: bold; color: #0E3A99;" />
+								<datebox id="fDevolucion" />
+							</row>
+							<row>
+								<label value="Lote Boletín:" style="font-style: italic; font-size: 12px; font-weight: bold; color: #0E3A99;" />
+								<textbox id="txtLoteBoletín" maxlength="6" style="font-weight: bold;" width="95%"  />
+								<label value="F.Ejecutiva:" style="font-style: italic; font-size: 12px; font-weight: bold; color: #0E3A99;" />
+								<datebox id="fEjecutiva" />
+								<label value="Fase:" style="font-style: italic; font-size: 12px; font-weight: bold; color: #0E3A99;" />
+								<listbox mold="select" id="lbFase" >
+									<listitem label="" value="" selected="true" />
+									<listitem label="VOLUNTARIO" value="V" />
+									<listitem label="EJECUTIVO" value="E" />
+									<listitem label="APREMIO" value="A" />
+									<listitem label="EXPEDIENTE" value="X" />
+								</listbox>
+							</row>
+							<row>
+								<label value="Observaciones:" style="font-style: italic; font-size: 12px; font-weight: bold; color: #0E3A99;" />
+								<cell colspan="5">
+									<textbox id="txtObservaciones" maxlength="100" style="font-weight: bold;" width="95%"  />
+								</cell>
+							</row>
+						</rows>
+					</grid>
+					<hbox pack="center" width="100%">
+						<button id="btnModificar" label="Modificar" image="/imagenes/edit.png" />
+						<button id="btnGrabarNuevo" label="Grabar Nuevo" image="/imagenes/ok.jpg" />
+						<button id="btnGrabarModificacion" label="Grabar Modificacion" image="/imagenes/ok.jpg" />
+						<button id="btnCancelar" label="Cancelar" image="/imagenes/close.png" />
+					</hbox>
+				</groupbox>
+			</vbox>
+		</div>
+	</window>
+</zk>

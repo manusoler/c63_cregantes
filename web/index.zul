@@ -1,0 +1,56 @@
+<zk>
+<window id="windows_index" width="100%" height="100%" apply="com.c63.controllers.Index_Controller">
+	<style src="css/Style.css" />
+    
+    <div  width="100%" height="100%">
+        <borderlayout sclass="complex-layout">
+            <north border="0">
+            	<vbox>
+	                <hbox>
+	                    <image sclass="complex-layout-header-img" src="imagenes/logo.bmp" height="30px" width="30px"/>
+	                    <label sclass="complex-layout-header-label" value="Recaudacion Comunidades de Regantes" />
+	                </hbox>
+	                <hbox>
+	                <menubar sclass="m-vista" id="menubar" width="100%">
+						<menu id="menuTablas" label="Tablas">
+							<menupopup>
+								<menuitem id="entidades" label="Entidades" style="font-size: 9px; " />
+								<menuitem id="bancosC63" label="Bancos" style="font-size: 9px; " />
+								<menuitem id="intereses" label="Intereses" style="font-size: 9px; " />
+								<menuitem id="contribuyentes" label="Contribuyentes" style="font-size: 9px; " />
+							</menupopup>
+						</menu>
+						<menuitem id="recibos" label="Recibos" style="font-size: 9px; " />
+						<menu label="Apremio">
+							<menupopup>
+								<menuitem id="miRelacionApremio" label="Relación Apremio" style="font-size: 9px;" />
+								<menuitem id="miMarcarApremio" label="Marcar Apremio" style="font-size: 9px;" />
+								<menuitem id="miNotifApremio" label="Notif. Apremio" style="font-size: 9px;" />
+								<menuitem id="miMarcarNotifApremio" label="Marcar Notif. Apremio" style="font-size: 9px;" />
+								<menuitem id="miMarcarPublBoletin" label="Marcar Publ. Boletín" style="font-size: 9px;" />
+							</menupopup>
+						</menu>
+						<menu label="Embargos CCC">
+							<menupopup>
+								<menuitem id="generarFichero" label="C63 Fase 1" style="font-size: 9px;" />
+								<menuitem id="generarFicheroFaseTres" label="C63 Fase 3" style="font-size: 9px;" />
+								<menuitem id="listadoFaseCuatro" label="C63 Fase 4" style="font-size: 9px;" />
+							</menupopup>
+						</menu>
+					</menubar>
+	                </hbox>
+				</vbox>
+            </north>
+            <center border="0" vflex="1"></center>
+            <south border="0" style="background: none repeat scroll 0 0 ;">
+                <toolbar sclass="vista" mold="panel" align="end">
+                    <separator orient="vertical" bar="true" />
+                    <label id="equipoNet" value="vvvvv"/>
+                    <separator orient="vertical" bar="true" />
+                    <label id="fecha" value="ddddd"/>
+                </toolbar>
+            </south>
+        </borderlayout>
+    </div>
+ </window>
+</zk>

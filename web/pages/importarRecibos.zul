@@ -1,0 +1,48 @@
+<?xel-method prefix="c" name="formatImporte" class="com.c63.comun.FormatElNumber" signature="java.lang.String formatImporte(double)"?>
+<zk>
+	<window id="winImportarRecibos" title="Importar Recibos de Excel" border="normal" mode="modal" width="600px"
+		apply="com.c63.controllers.ImportarRecibos_Controlador">
+		
+		<div width="100%">
+			<vbox spacing="10px">
+				
+				<groupbox id="group" mold="3d" width="100%">
+					<caption image="/imagenes/recibos.gif"/>
+					<grid id="datos_box">
+						<columns sizable="true" style="padding:0 0;">
+							<column width="30%" style="font-size: 10px;font-weight: bold;" />
+							<column width="70%" style="font-size: 10px;font-weight: bold;" />
+						</columns>
+						<rows>
+							<row>
+								<label value="Entidad:" style="font-style: italic; font-size: 12px; font-weight: bold; color: #0E3A99;" />
+								<listbox mold="select" id="lbCodigoEntidad" >
+									<template name="model">
+										<listitem value="${each.codigoentidad}" label="${each.codigoentidad}" />
+									</template>
+								</listbox>
+							</row>
+							<row>
+								<label value="Fase:" style="font-style: italic; font-size: 12px; font-weight: bold; color: #0E3A99;" />
+								<listbox mold="select" id="lbFase" >
+									<listitem label="" value="" selected="true" />
+									<listitem label="VOLUNTARIO" value="V" />
+									<listitem label="EJECUTIVO" value="E" />
+									<listitem label="EXPEDIENTE" value="X" />
+								</listbox>
+							</row>
+							<row>
+								<button id="btnSelExcel" label="Seleccionar Archivo" upload="true,maxsize=-1,multiple=false"/>
+								<label id="lblNombreFichero" value="" />
+							</row>
+						</rows>
+					</grid>
+					<hbox pack="center" width="100%">
+						<button id="btnImportar" label="Importar" image="/imagenes/ok.jpg" />
+						<button id="btnCancelar" label="Cancelar" image="/imagenes/close.png" />
+					</hbox>
+				</groupbox>
+			</vbox>
+		</div>
+	</window>
+</zk>

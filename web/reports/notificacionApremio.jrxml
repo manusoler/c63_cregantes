@@ -1,0 +1,935 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="notificacionApremio" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="32e96a24-1081-4891-9001-eb055858ecd0">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="1020"/>
+	<parameter name="P_LOTE" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select rec.*, con.*, ent.*
+from recibos rec, contribuyentes con, entidades ent
+where
+ent.codigoentidad = rec.codigoentidad and
+rec.id_contribuyente = con.id_contribuyente and
+rec.f_providencia is not null and
+rec.estado = 'P' and
+rec.lote_notificacion = $P{P_LOTE}
+order by con.nombre_razon, con.cif_nif, rec.id_recibo]]>
+	</queryString>
+	<field name="id_recibo" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="num_regante" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cod_objeto" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="domicilio_objeto" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="concepto" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ano" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="periodo" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="texto_periodo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="f_asamblea" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="principal" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="recargo" class="java.lang.Double">
+		<fieldDescription><![CDATA[RECARGO APREMIO (5% o 10%) en función de si ha sido o no notificado]]></fieldDescription>
+	</field>
+	<field name="intereses" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="costas" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ingresos_cuenta" class="java.lang.Double">
+		<fieldDescription><![CDATA[ingresos en cuenta]]></fieldDescription>
+	</field>
+	<field name="estado" class="java.lang.String">
+		<fieldDescription><![CDATA[P - Pdte, C- Cobrado, A - Anulado]]></fieldDescription>
+	</field>
+	<field name="f_estado" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fase" class="java.lang.String">
+		<fieldDescription><![CDATA[V - Voluntario, E - Ejecutivo, A - Apremio, X - Expendiente]]></fieldDescription>
+	</field>
+	<field name="f_providencia" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="lote_apremio" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="estado_notificacion" class="java.lang.String">
+		<fieldDescription><![CDATA[0 - NO NOTIFICADO
+1 - NOTIFICADO
+2 - NOTIF. DEVUELTA
+3 - NOTIF. BOLETÍN]]></fieldDescription>
+	</field>
+	<field name="f_notificacion" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="f_devolucion" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="lote_boletin" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="observaciones" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="codigoentidad" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="id_contribuyente" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="f_ejecutiva" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="lote_notificacion" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cif_nif" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nombre_razon" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="domicilio" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="poblacion" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cp" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="provincia" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="telefono" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="email" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nombreentidad" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="domicilioentidad" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="localidadentidad" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cpostalentidad" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="provinciaentidad" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="telefonoentidad" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="emailentidad" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nifentidad" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<group name="Recibo" isStartNewPage="true">
+		<groupExpression><![CDATA[$F{id_recibo}]]></groupExpression>
+		<groupHeader>
+			<band height="2"/>
+		</groupHeader>
+		<groupFooter>
+			<band height="488">
+				<staticText>
+					<reportElement x="7" y="3" width="500" height="14" uuid="6dc6d987-662c-4687-9473-17f410be3945"/>
+					<textElement>
+						<font fontName="Arial" size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[NOTIFICACION DE PROVIDENCIA DE APREMIO Y REQUERIMIENTO DE PAGO]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="7" y="18" width="548" height="58" uuid="160dc224-8ef1-4435-a28a-985bef4978ba"/>
+					<textElement textAlignment="Justified">
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<text><![CDATA[En virtud de las facultades que les otorga a las comunidades de regantes el articulo 83.4 de la Ley de Aguas, Real Decreto Legislativo 1/2001 de 20 de julio, y el Reglamento del Dominio Publico Hidráulico, Real Decreto 849/86 de 11 de abril y en cumplimiento de lo previsto en el articulo 167 de la Ley 58/2003, de 17 de diciembre, General Tributaria, y en los articulos 69,2, 70 y 115 del Real Decreto 939/2005, de 29 de julio, por el que se aprueba el Reglamento General de Recaudación, fue dictada PROVIDENCIA DE APREMIO, una vez transcurrido el periodo voluntario de pago de la deuda con esta Comunidad de Regantes, especificada mas arriba, sin que la misma haya sido satisfecha por los deudores, con el consiguiente comienzo del devengo de intereses de demora y en su caso las costas correspondientes.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="7" y="76" width="100" height="12" uuid="9b958f26-818e-4f44-8f21-03063213c0ee"/>
+					<textElement>
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<text><![CDATA[REQUERIMIENTO:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="8" y="88" width="547" height="20" uuid="3e8c844c-02bf-4fa0-b105-01a95acea984"/>
+					<textElement textAlignment="Justified">
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<text><![CDATA[Se requiere expresamente a los deudores para que efectúen el pago de la deuda, incluido el recargo de apremio reducido, del 10 por ciento, en el plazo establecido en el artículo 62.5 de la Ley General Tributaria.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="9" y="106" width="100" height="12" uuid="9463608a-6b72-47ec-9bba-bab6a3551858"/>
+					<textElement>
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<text><![CDATA[ADVERTENCIA:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="8" y="118" width="547" height="74" uuid="4887552c-c7a6-4f9d-92ba-7a93a78f28b6"/>
+					<textElement textAlignment="Justified">
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<text><![CDATA[El anterior requerimiento se hace con la advertencia de que, en caso de no efectuar el ingresos del importe total de la deuda pendiente, incluido el recargo de apremio reducido, en dicho plazo, se procederá ejecutivamente contra los bienes y derechos de los deudores, mediante el embargo de los mismos o la ejecucion de las garantias existentes para el cobro de la deuda con inclusión del recargo de apremio ordinario del 20 por ciento y de los intereses de demora que se devenguen hasta la fecha de cancelacion de la deuda. A las deudas antes reseñadas les sera exigible el recargo de periodo ejecutivo, del 5 por ciento, en caso de que las mismas sean satisfechas en su totalidad antes de haber sido notificada al deudor la presente providencia de apremio.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="9" y="167" width="221" height="12" uuid="f42f1cec-d104-43cd-99b4-fa35ca14de71"/>
+					<textElement>
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<text><![CDATA[LUGAR, FORMA DE PAGO Y PLAZOS:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="9" y="181" width="546" height="20" uuid="caabdf1c-148d-4ab0-9963-f47e342b4fa5"/>
+					<textElement textAlignment="Justified">
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<text><![CDATA[Mediante ingreso en las CCC siguientes: CAJAMAR: ES36 3058 0114 35 2720026421 y UNICAJA ES16 2103 0871 31 0030007186, aportando la carta de pago anexa modelo MOD 110, indicando como concepto de ingreso el EXPEDIENTE(NUM.DEUDA) ]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="9" y="201" width="546" height="31" uuid="b0a47171-27c7-4cbb-8897-9faa29678375"/>
+					<textElement>
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<text><![CDATA[Los plazos para efectuar el pago se regulan en el Artículo 62.5 de la Ley General Tributaria:
+1. Las notificadas entre los dias 1 y 15 de cada mes, hasta el 20 de dicho mes, o inmediato hábil posterior.
+2. Las notificadas entre los dias 16 y último de cada mes, hasta el día 5 del siguiente mes, o inmediato hábil posterior.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="9" y="231" width="146" height="12" uuid="5375870d-3c4f-46b1-ad6a-fb8d06d7572a"/>
+					<textElement>
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<text><![CDATA[COSTAS:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="9" y="243" width="545" height="14" uuid="b1a42b45-4b5d-47c4-ba80-eec392c454e3"/>
+					<textElement>
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<text><![CDATA[En el caso de producirse costas del procedimiento, se repercutirá su importe al deudor, conforme a lo establecido en el art. 115 del RGR.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="8" y="255" width="146" height="12" uuid="10dea977-8e15-45fe-9188-577b40c33ea2"/>
+					<textElement>
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<text><![CDATA[FRACCIONAMIENTO:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="9" y="268" width="544" height="13" uuid="1bd2e327-7538-41bc-8f2e-3405d93fd172"/>
+					<textElement>
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<text><![CDATA[Podra usted solicitar fraccionamiento o aplazamiento del pago de la deuda ante el Sr. Presidente de la Comunidad de Regantes.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="9" y="279" width="146" height="12" uuid="dc184e71-03a0-4f7b-8d8d-d6be575008ae"/>
+					<textElement>
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<text><![CDATA[SUSPENSION:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="9" y="292" width="544" height="13" uuid="22670c45-2ea0-4268-a7d5-004382a8ad46"/>
+					<textElement>
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<text><![CDATA[El procedimiento de apremio no se suspenderá sino en los casos y condiciones previstos en el art. 73 del RGR.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="9" y="305" width="146" height="12" uuid="80d90e62-30e6-43f8-8828-65b9acd3d7b1"/>
+					<textElement>
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<text><![CDATA[RECURSOS:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="9" y="319" width="544" height="84" uuid="50a37df0-2b69-407d-afdc-80e348f8a062"/>
+					<textElement textAlignment="Justified">
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<text><![CDATA[Contra el presente acto, que pone fin a la vía administrativa, se podrá interponer con carácter potestativo, recurso de reposición ante el Sr. Presidente de la Comunidad de Regantes, en el plazo de un mes contado a partir del día siguiente de su notificación, no obstante, también podrá interponer recurso contencioso administrativo ante el Juzgado de lo Contencioso Administrativo de Almería en el plazo de dos meses contado desde el día siguiente al de su notificación conforme a lo previsto en el artículo 46 en relación con el art. 8 ambos de la Ley 29/1998, de 13 de julio, reguladora de la Jurisdicción  Contencioso-Administrativa. Se le indica que si se presenta recurso de reposición, no podrá interponer recurso contencioso administrativo hasta que sea resuelto expresamente o se haya producido la desestimación presunta del recurso de reposición por el transcurso del plazo de un mes desde su interposición. La interposición del recurso sólo suspenderá el procedimiento en los casos y condiciones previstas en el artículo 165 Ley 58/2003, de 17 de diciembre, General Tributaria.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="348" y="389" width="194" height="35" uuid="55539fc8-0f08-4cc1-a71f-f06001e97768"/>
+					<textElement>
+						<font fontName="Arial"/>
+					</textElement>
+					<text><![CDATA[Fdo: Dña. ISabel Mª Moreno Garcia
+Agente Recaudador]]></text>
+				</staticText>
+				<textField pattern="dd MMMMM yyyy">
+					<reportElement x="350" y="428" width="189" height="20" uuid="1552a56c-9af3-46f5-b164-e162a7e2865e"/>
+					<textElement>
+						<font fontName="Arial"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="4" y="446" width="550" height="42" uuid="a1f48080-edd1-41c6-8373-64d18da54606"/>
+					<textElement textAlignment="Justified">
+						<font fontName="Arial" size="8" isItalic="true"/>
+					</textElement>
+					<text><![CDATA[De acuerdo con la Ley Ogánica 15/1999, de Protección de Datos, española, le comunicamos que sus datos forman parte de un fichero automatizado perteneciente a la empresa emisora de este documento, con la finalidad de tratarlos en nuestras tareas de administración y gestión. Sus datos serán de uso exclusivo de la Entidad, salvo que las leyes dispongan otra cosa. Queda usted informado de sus derechos de oposición, acceso, rectificación y cancelación de sus datos.]]></text>
+				</staticText>
+			</band>
+			<band height="609">
+				<rectangle>
+					<reportElement x="2" y="457" width="552" height="32" uuid="416042ba-600a-405d-a9e2-7746777ec9ca"/>
+				</rectangle>
+				<rectangle>
+					<reportElement x="2" y="412" width="552" height="20" uuid="03d3163f-dec7-481b-b2c7-ea00ce91f649"/>
+				</rectangle>
+				<rectangle>
+					<reportElement x="340" y="321" width="214" height="18" uuid="c5178ec8-70c7-428e-a55d-504332d96f2a"/>
+				</rectangle>
+				<rectangle>
+					<reportElement x="340" y="8" width="213" height="18" uuid="d4a066e3-423f-4145-853d-b44c3994ec56"/>
+				</rectangle>
+				<rectangle>
+					<reportElement x="1" y="125" width="552" height="32" uuid="da950c09-4b5d-45e2-98a2-a9e7945c00bd"/>
+				</rectangle>
+				<rectangle>
+					<reportElement x="1" y="80" width="552" height="20" uuid="20354151-5b38-4570-94fa-22cf97733d94"/>
+				</rectangle>
+				<rectangle>
+					<reportElement x="1" y="60" width="552" height="20" uuid="e434bdc4-a872-4672-9b78-b8f912b5dc0c"/>
+				</rectangle>
+				<rectangle>
+					<reportElement x="1" y="39" width="552" height="20" uuid="5a620488-6e3d-48db-aac3-6d8855e3fdee"/>
+				</rectangle>
+				<break>
+					<reportElement x="0" y="6" width="100" height="1" uuid="821398c2-7369-4d1c-838e-a61c1df12026"/>
+				</break>
+				<textField pattern="#,##0.00;-#,##0.00" isBlankWhenNull="true">
+					<reportElement x="226" y="142" width="93" height="14" uuid="ae60e710-21d3-46ba-b1c9-d42efb373555"/>
+					<textElement textAlignment="Right">
+						<font fontName="Arial"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{principal}*0.1]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00;-#,##0.00">
+					<reportElement x="326" y="143" width="82" height="14" uuid="ffaabc94-9c1a-42df-8482-e87891bbe8df"/>
+					<textElement textAlignment="Right"/>
+					<textFieldExpression><![CDATA[$F{ingresos_cuenta}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="159" y="43" width="381" height="14" uuid="992aafec-6889-4c89-984f-4b2cb6b1f742"/>
+					<textElement>
+						<font fontName="Arial" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{nombreentidad}+" - "+$F{nifentidad}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement mode="Opaque" x="5" y="43" width="148" height="14" backcolor="#CCCCCC" uuid="f91c5a54-fe40-40b2-a47f-762b604a832e"/>
+					<textElement>
+						<font fontName="Arial" isItalic="true"/>
+					</textElement>
+					<text><![CDATA[Organo Emisor (Nombre - NIF);]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="158" y="84" width="382" height="14" uuid="2de5454e-93a8-4b98-ab2b-e69dac6c2489"/>
+					<textElement>
+						<font fontName="Arial"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{cod_objeto}+" - "+$F{domicilio_objeto}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement mode="Opaque" x="124" y="129" width="100" height="14" backcolor="#CCCCCC" uuid="200051b3-be07-4fe0-9e5e-ece4469ee339"/>
+					<textElement textAlignment="Right">
+						<font fontName="Arial"/>
+					</textElement>
+					<text><![CDATA[(A) Principal ]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="159" y="64" width="381" height="14" uuid="f789a0c5-fbc6-4e40-9945-f4663493611f"/>
+					<textElement>
+						<font fontName="Arial"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{nombre_razon}+" - "+$F{cif_nif}+" Num.Regante:"+$F{num_regante}]]></textFieldExpression>
+				</textField>
+				<rectangle>
+					<reportElement x="1" y="100" width="552" height="20" uuid="3542ac2e-250a-40c0-94d3-000d01c490dd"/>
+				</rectangle>
+				<textField pattern="#,##0.00;-#,##0.00">
+					<reportElement x="427" y="143" width="113" height="14" uuid="94ac1d81-f419-4d62-bd2d-9312034f10ea"/>
+					<textElement textAlignment="Right">
+						<font fontName="Arial" size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{principal} + ($F{principal}*0.1)- $F{ingresos_cuenta}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement mode="Opaque" x="5" y="129" width="114" height="14" backcolor="#CCCCCC" uuid="a99cd898-96e2-45ea-b82b-28549bb5ced7"/>
+					<textElement>
+						<font fontName="Arial" size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[IMPORTE DEUDA:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="228" y="129" width="93" height="14" backcolor="#CCCCCC" uuid="85c79f52-ca5e-4721-9d61-4d3975614b96"/>
+					<textElement textAlignment="Right">
+						<font fontName="Arial"/>
+					</textElement>
+					<text><![CDATA[(B) Apremio  (10%)]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="326" y="128" width="82" height="14" backcolor="#CCCCCC" uuid="6c4c2534-f94f-495a-8039-b6381824ec4e"/>
+					<textElement textAlignment="Right">
+						<font fontName="Arial"/>
+					</textElement>
+					<text><![CDATA[(C) ING. A CTA.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="5" y="83" width="147" height="14" backcolor="#CCCCCC" uuid="e33daf1c-c7e1-4ce4-a1cf-63d843d1b977"/>
+					<textElement>
+						<font fontName="Arial" isItalic="true"/>
+					</textElement>
+					<text><![CDATA[Finca(Poligono-Parcela-Paraje)]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="5" y="104" width="147" height="14" backcolor="#CCCCCC" uuid="2b30ce04-4992-4995-b3dd-b8b8d8caea79"/>
+					<textElement>
+						<font fontName="Arial" isItalic="true"/>
+					</textElement>
+					<text><![CDATA[Concepto-Año-Periodo:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="5" y="64" width="147" height="14" backcolor="#CCCCCC" uuid="50a29dab-4b57-45b5-8ab4-7566a31990ff"/>
+					<textElement>
+						<font fontName="Arial" isItalic="true"/>
+					</textElement>
+					<text><![CDATA[Deudor(Nombre-NIF-N.Regante)]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="427" y="128" width="113" height="14" backcolor="#CCCCCC" uuid="c1017245-3106-4721-b0ac-f659818ef4e3"/>
+					<textElement textAlignment="Right">
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<text><![CDATA[TOTAL DEUDA (A+B-C)]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="159" y="104" width="381" height="14" uuid="10feb55f-6110-489a-ac8b-6c6f6e86f188"/>
+					<textElement>
+						<font fontName="Arial"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{concepto}+" ´"+$F{ano}+" - "+$F{periodo}+" - "+$F{texto_periodo}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00;-#,##0.00">
+					<reportElement x="124" y="143" width="100" height="14" uuid="9afcfe90-80c4-4fe2-a7a0-80f8ac9cefc7"/>
+					<textElement textAlignment="Right">
+						<font fontName="Arial"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{principal}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="356" y="11" width="179" height="14" uuid="74b5611b-9dab-4ae3-98f9-47356afee32e"/>
+					<textElement>
+						<font fontName="Arial" size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[CARTA DE PAGO - MOD.110]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="4" y="176" width="546" height="20" uuid="64513945-2105-438e-b8d0-4225e7fa03e9"/>
+					<textElement textAlignment="Justified">
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<text><![CDATA[Mediante ingreso en las CCC siguientes: CAJAMAR: ES36 3058 0114 35 2720026421 y UNICAJA ES16 2103 0871 31 0030007186, aportando la carta de pago anexa modelo MOD 110, indicando como concepto de ingreso el EXPEDIENTE(NUM.DEUDA) ]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="4" y="196" width="146" height="12" uuid="f1c666d3-d838-4420-b9f6-6b527b361423"/>
+					<textElement>
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<text><![CDATA[PLAZOS:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="4" y="164" width="146" height="12" uuid="5ddfb2c0-fcd9-4c70-bf74-da4c22698a6e"/>
+					<textElement>
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<text><![CDATA[LUGAR Y FORMA DE PAGO:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="4" y="209" width="546" height="31" uuid="e1da799a-925c-456d-bbe6-cb7d08fb3000"/>
+					<textElement>
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<text><![CDATA[Los plazos para efectuar el pago se regulan en el Artículo 62.5 de la Ley General Tributaria:
+1. Las notificadas entre los dias 1 y 15 de cada mes, hasta el 20 de dicho mes, o inmediato hábil posterior.
+2. Las notificadas entre los dias 16 y último de cada mes, hasta el día 5 del siguiente mes, o inmediato hábil posterior.]]></text>
+				</staticText>
+				<line>
+					<reportElement x="5" y="275" width="541" height="1" uuid="b0ce2790-8d0b-4c07-a38c-1b1ca761e103"/>
+					<graphicElement>
+						<pen lineStyle="Dashed"/>
+					</graphicElement>
+				</line>
+				<staticText>
+					<reportElement x="356" y="262" width="186" height="15" uuid="78da5e0b-aac1-4c38-925c-eee007c104b5"/>
+					<textElement textAlignment="Right">
+						<font fontName="Arial"/>
+					</textElement>
+					<text><![CDATA[Ejemplar para el interesado]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="4" y="280" width="286" height="86" uuid="5972e7bb-4b54-40e4-9a71-5cc495f2031a"/>
+					<textElement>
+						<font fontName="Arial"/>
+					</textElement>
+					<text><![CDATA[AREA - AGENCIA DE RECAUDACION EJECUTIVA ALMERIA
+Isabel Mª Moreno Garcia - 45591748K
+C/ Alcalde Ramón Barroeta, 1 Bajo
+04120 LA CAÑADA DE SAN URBANO - ALMERIA
+Tlf:  950715371
+Email: gerencia@agenciarecaudacion.es]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="357" y="324" width="179" height="14" uuid="b4e41316-ecd7-4bb5-96b0-eefbd709a069"/>
+					<textElement>
+						<font fontName="Arial" size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[CARTA DE PAGO - MOD.110]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="327" y="460" width="82" height="14" backcolor="#CCCCCC" uuid="37a07171-f38d-48f6-9644-891552b4403d"/>
+					<textElement textAlignment="Right">
+						<font fontName="Arial"/>
+					</textElement>
+					<text><![CDATA[(C) ING. A CTA.]]></text>
+				</staticText>
+				<rectangle>
+					<reportElement x="2" y="371" width="552" height="20" uuid="77405467-5d1b-4f3a-b976-98ab79c55171"/>
+				</rectangle>
+				<rectangle>
+					<reportElement x="2" y="392" width="552" height="20" uuid="338d8112-1f9a-41cb-9b0f-ae10eb0f7123"/>
+				</rectangle>
+				<textField pattern="#,##0.00;-#,##0.00">
+					<reportElement x="327" y="475" width="82" height="14" uuid="fed7a89f-9977-4484-bed4-40802ed139a8"/>
+					<textElement textAlignment="Right"/>
+					<textFieldExpression><![CDATA[$F{ingresos_cuenta}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="5" y="496" width="146" height="12" uuid="a9d51a48-3c87-446d-8b54-85dddd88c461"/>
+					<textElement>
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<text><![CDATA[LUGAR Y FORMA DE PAGO:]]></text>
+				</staticText>
+				<textField pattern="#,##0.00;-#,##0.00">
+					<reportElement x="428" y="475" width="113" height="14" uuid="1295c180-22b0-491e-a9d9-7a168772c70f"/>
+					<textElement textAlignment="Right">
+						<font fontName="Arial" size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{principal} + ($F{principal}*0.1)- $F{ingresos_cuenta}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement mode="Opaque" x="428" y="460" width="113" height="14" backcolor="#CCCCCC" uuid="efc16188-7c47-486e-bcdd-d9ce5edbb21b"/>
+					<textElement textAlignment="Right">
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<text><![CDATA[TOTAL DEUDA (A+B-C)]]></text>
+				</staticText>
+				<rectangle>
+					<reportElement x="2" y="432" width="552" height="20" uuid="9dc5d4a0-0118-45a8-b54c-0edf67728ade"/>
+				</rectangle>
+				<staticText>
+					<reportElement x="5" y="528" width="146" height="12" uuid="2dabe82a-5c97-43d1-8ed9-e589ccfeca01"/>
+					<textElement>
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<text><![CDATA[PLAZOS:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="6" y="375" width="148" height="14" backcolor="#CCCCCC" uuid="ee1d90de-0621-4138-a3e1-3478895b62cb"/>
+					<textElement>
+						<font fontName="Arial" isItalic="true"/>
+					</textElement>
+					<text><![CDATA[Organo Emisor (Nombre - NIF);]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="5" y="541" width="546" height="31" uuid="c31493dd-33cc-4520-af83-2a9265aef83e"/>
+					<textElement>
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<text><![CDATA[Los plazos para efectuar el pago se regulan en el Artículo 62.5 de la Ley General Tributaria:
+1. Las notificadas entre los dias 1 y 15 de cada mes, hasta el 20 de dicho mes, o inmediato hábil posterior.
+2. Las notificadas entre los dias 16 y último de cada mes, hasta el día 5 del siguiente mes, o inmediato hábil posterior.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="6" y="415" width="147" height="14" backcolor="#CCCCCC" uuid="bccdc083-0b06-4872-acbe-3f14919b4d67"/>
+					<textElement>
+						<font fontName="Arial" isItalic="true"/>
+					</textElement>
+					<text><![CDATA[Finca(Poligono-Parcela-Paraje)]]></text>
+				</staticText>
+				<textField pattern="#,##0.00;-#,##0.00">
+					<reportElement x="125" y="475" width="100" height="14" uuid="d86be614-05fd-42c6-b8b6-839dac0f917a"/>
+					<textElement textAlignment="Right">
+						<font fontName="Arial"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{principal}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement mode="Opaque" x="125" y="461" width="100" height="14" backcolor="#CCCCCC" uuid="28eecd42-a7d2-4d93-bdb3-189ff5db6394"/>
+					<textElement textAlignment="Right">
+						<font fontName="Arial"/>
+					</textElement>
+					<text><![CDATA[(A) Principal ]]></text>
+				</staticText>
+				<textField pattern="#,##0.00;-#,##0.00" isBlankWhenNull="true">
+					<reportElement x="227" y="474" width="93" height="14" uuid="e7a2bd99-897b-4ab2-89f9-c04a4c205b05"/>
+					<textElement textAlignment="Right">
+						<font fontName="Arial"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{principal}*0.1]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement mode="Opaque" x="6" y="396" width="147" height="14" backcolor="#CCCCCC" uuid="0b6ec562-be47-4de9-b6b9-1ce14a6dcd40"/>
+					<textElement>
+						<font fontName="Arial" isItalic="true"/>
+					</textElement>
+					<text><![CDATA[Deudor(Nombre-NIF-N.Regante)]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="160" y="436" width="381" height="14" uuid="7e57ed9f-0557-4b70-8ad3-7a37b4a6a731"/>
+					<textElement>
+						<font fontName="Arial"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{concepto}+" ´"+$F{ano}+" - "+$F{periodo}+" - "+$F{texto_periodo}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement mode="Opaque" x="229" y="461" width="93" height="14" backcolor="#CCCCCC" uuid="2f53e3fc-1b36-4382-be46-ff4b7ee1af01"/>
+					<textElement textAlignment="Right">
+						<font fontName="Arial"/>
+					</textElement>
+					<text><![CDATA[(B) Apremio  (10%)]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="160" y="375" width="381" height="14" uuid="f40d0a72-9f86-462a-9f0a-0b385631a658"/>
+					<textElement>
+						<font fontName="Arial" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{nombreentidad}+" - "+$F{nifentidad}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement mode="Opaque" x="6" y="461" width="114" height="14" backcolor="#CCCCCC" uuid="ae445c9f-15e8-43ba-aa74-cf3ec9ac6505"/>
+					<textElement>
+						<font fontName="Arial" size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[IMPORTE DEUDA:]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="160" y="396" width="381" height="14" uuid="08a475ae-f9ee-41fe-be30-93f1673afedd"/>
+					<textElement>
+						<font fontName="Arial"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{nombre_razon}+" - "+$F{cif_nif}+" Num.Regante:"+$F{num_regante}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="5" y="508" width="546" height="20" uuid="53a88a0a-58f7-43b5-9060-00f7c440ed16"/>
+					<textElement textAlignment="Justified">
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<text><![CDATA[Mediante ingreso en las CCC siguientes: CAJAMAR: ES36 3058 0114 35 2720026421 y UNICAJA ES16 2103 0871 31 0030007186, aportando la carta de pago anexa modelo MOD 110, indicando como concepto de ingreso el EXPEDIENTE(NUM.DEUDA) ]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="6" y="436" width="147" height="14" backcolor="#CCCCCC" uuid="99e8cc0b-5245-4ca6-88a1-f6ff821cc4e1"/>
+					<textElement>
+						<font fontName="Arial" isItalic="true"/>
+					</textElement>
+					<text><![CDATA[Concepto-Año-Periodo:]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="159" y="416" width="382" height="14" uuid="5c97edc9-6f8b-408c-9f54-79f504823ff3"/>
+					<textElement>
+						<font fontName="Arial"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{cod_objeto}+" - "+$F{domicilio_objeto}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="384" y="594" width="169" height="15" uuid="8d20288b-d83e-41f3-a778-bc4c1ee6044c"/>
+					<textElement>
+						<font fontName="Arial"/>
+					</textElement>
+					<text><![CDATA[Ejemplar para entidad de credito]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="40" y="589" width="249" height="20" uuid="b1b3f3c5-7115-44a5-8189-8cf970c35d89"/>
+					<textElement>
+						<font fontName="Arial" isItalic="true"/>
+					</textElement>
+					<text><![CDATA[Validacion mecánica o sello, fecha y firma.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="41" y="257" width="249" height="20" uuid="099bebdb-0166-4574-818d-c9b5d91c34b4"/>
+					<textElement>
+						<font fontName="Arial" isItalic="true"/>
+					</textElement>
+					<text><![CDATA[Validacion mecánica o sello, fecha y firma.]]></text>
+				</staticText>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="7" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="123" splitType="Stretch">
+			<rectangle>
+				<reportElement x="356" y="19" width="199" height="31" uuid="06e40da5-4037-45c1-b880-ee484f80be97"/>
+			</rectangle>
+			<textField>
+				<reportElement x="289" y="63" width="233" height="14" uuid="7af9fc0d-6b58-4660-9fc1-99a195d70cc5"/>
+				<textFieldExpression><![CDATA[$F{nombre_razon}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="289" y="78" width="233" height="14" uuid="39053157-8927-4359-b1ba-767197d92bd8"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{domicilio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="289" y="92" width="233" height="14" uuid="64d21a79-7773-4e35-9aa0-b6cdfd022c23"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{poblacion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="289" y="106" width="233" height="14" uuid="3cdfa048-b671-4de2-8538-30f87cf4b34d"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA["("+$F{cp}+") "+$F{provincia}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="361" y="22" width="189" height="14" backcolor="#CCCCCC" uuid="2199dfda-3e8b-436e-8743-2448c7594423"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Expediente(Num.Deuda):]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="357" y="36" width="194" height="14" uuid="05ab6cbe-14d9-4026-bdd9-3f877a6a4e3a"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{lote_notificacion}+"-"+$F{cif_nif}+"-"+$F{id_recibo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="3" y="0" width="286" height="86" uuid="639ef1ac-1e6d-4710-9af3-ef2438c7d5a3"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[AREA - AGENCIA DE RECAUDACION EJECUTIVA ALMERIA
+Isabel Mª Moreno Garcia - 45591748K
+C/ Alcalde Ramón Barroeta, 1 Bajo
+04120 LA CAÑADA DE SAN URBANO - ALMERIA
+Tlf:  950715371
+Email: gerencia@agenciarecaudacion.es]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="2" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="141" splitType="Stretch">
+			<rectangle>
+				<reportElement x="3" y="84" width="552" height="20" uuid="92bde656-0c12-464b-ad2b-5c542d994678"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="3" y="107" width="552" height="32" uuid="f4113174-68d0-48f7-bd46-6695f86dc218"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="3" y="65" width="552" height="20" uuid="bae70b66-62bc-4e83-95dd-5f7f38ad2b77"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="3" y="45" width="552" height="20" uuid="6208569e-d18a-4d89-a52a-6b263d6e6e6d"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="3" y="25" width="552" height="20" uuid="7f1f825e-745a-449a-b728-a2288754ddf9"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="3" y="5" width="552" height="20" uuid="1493fbf7-5057-495f-bf37-96b793d9e644"/>
+			</rectangle>
+			<textField>
+				<reportElement x="161" y="6" width="381" height="14" uuid="ea27def2-7744-4d28-98e0-d09d46ee4f5f"/>
+				<textElement>
+					<font fontName="Arial" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombreentidad}+" - "+$F{nifentidad}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="7" y="7" width="148" height="14" backcolor="#CCCCCC" uuid="f9de8b07-a0e5-4118-96e6-8180b986b933"/>
+				<textElement>
+					<font fontName="Arial" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Organo Emisor (Nombre - NIF);]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="161" y="29" width="381" height="14" uuid="1cde777a-0e78-4456-814d-9a009cf6d97f"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombre_razon}+" - "+$F{cif_nif}+" Num.Regante:"+$F{num_regante}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="7" y="29" width="147" height="14" backcolor="#CCCCCC" uuid="ec2c32c2-1eb2-4590-8d8c-6ce52cde0f11"/>
+				<textElement>
+					<font fontName="Arial" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Deudor(Nombre-NIF-N.Regante)]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="160" y="49" width="382" height="14" uuid="03b7353d-5ef3-49db-8fcb-4df5dcb63659"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cod_objeto}+" - "+$F{domicilio_objeto}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="7" y="48" width="147" height="14" backcolor="#CCCCCC" uuid="4154ba26-50af-409d-b055-cebce7b2a145"/>
+				<textElement>
+					<font fontName="Arial" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Finca (Poigono-Parcela-Paraje)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="7" y="69" width="147" height="14" backcolor="#CCCCCC" uuid="04066f20-b029-46b8-adb6-231a66cdff3a"/>
+				<textElement>
+					<font fontName="Arial" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Concepto-Año-Periodo:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="161" y="69" width="381" height="14" uuid="dc0d46a1-d7f6-4a73-ac5b-545ee7d509f7"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{concepto}+" ´"+$F{ano}+" - "+$F{periodo}+" - "+$F{texto_periodo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="7" y="111" width="114" height="14" backcolor="#CCCCCC" uuid="b9ac57b3-22b1-44c1-8ad2-41b8685cb86e"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[IMPORTE DEUDA:]]></text>
+			</staticText>
+			<textField pattern="#,##0.00;-#,##0.00">
+				<reportElement x="126" y="125" width="100" height="14" uuid="00bb34ea-3a32-429f-890f-1b6c58c691ef"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{principal}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="126" y="111" width="100" height="14" backcolor="#CCCCCC" uuid="27603fba-02e2-4f55-a0eb-a397c6062e05"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[(A) Principal ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="230" y="111" width="93" height="14" backcolor="#CCCCCC" uuid="793fd88c-dd7e-4922-8066-8514602f5564"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[(B) Apremio  (10%)]]></text>
+			</staticText>
+			<textField pattern="#,##0.00;-#,##0.00" isBlankWhenNull="true">
+				<reportElement x="228" y="124" width="93" height="14" uuid="8c59e9d6-fe37-4e87-b026-f45a00f9a722"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{principal}*0.1]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="328" y="110" width="82" height="14" backcolor="#CCCCCC" uuid="c0d58599-2a02-4ec8-bf06-a8023c17ffe9"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[(C) ING. A CTA.]]></text>
+			</staticText>
+			<textField pattern="#,##0.00;-#,##0.00">
+				<reportElement x="328" y="125" width="82" height="14" uuid="f554c861-4ec5-4a2b-ad6b-6c79d5e092ef"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{ingresos_cuenta}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;-#,##0.00">
+				<reportElement x="429" y="125" width="113" height="14" uuid="d587b4f7-4f9a-4063-837b-9705d6459af6"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{principal} + ($F{principal}*0.1)- $F{ingresos_cuenta}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="429" y="110" width="113" height="14" backcolor="#CCCCCC" uuid="92704c05-ddeb-4215-989e-a3c115266372"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TOTAL DEUDA (A+B-C)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="6" y="86" width="209" height="14" backcolor="#CCCCCC" uuid="73e26044-746f-4b22-a928-083fcb59b05f"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[Fecha Aprobacion Cuota en Junta General:]]></text>
+			</staticText>
+			<textField pattern="dd-MMM-yyyy" isBlankWhenNull="true">
+				<reportElement x="218" y="87" width="100" height="14" uuid="241ca687-9f78-4c0e-aac3-1b7b2cb3c4e8"/>
+				<textFieldExpression><![CDATA[$F{f_asamblea}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="326" y="87" width="135" height="14" backcolor="#CCCCCC" uuid="5dfed9df-9369-403a-b32b-9167078e830a"/>
+				<text><![CDATA[Fecha Providencia Apremio]]></text>
+			</staticText>
+			<textField pattern="dd-MMM-yyyy" isBlankWhenNull="true">
+				<reportElement x="464" y="87" width="78" height="14" uuid="fbad1ff5-3e68-495e-a5da-ece6bef67642"/>
+				<textFieldExpression><![CDATA[$F{f_providencia}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="8" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="6" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="4" splitType="Stretch"/>
+	</summary>
+</jasperReport>

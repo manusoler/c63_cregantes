@@ -1,0 +1,32 @@
+<?xel-method prefix="c" name="formatImporte" class="com.c63.comun.FormatElNumber" signature="java.lang.String formatImporte(double)"?>
+<zk>
+	<window id="winCrearLoteApremio" title="Crear Lote Apremio" border="normal" mode="modal" width="600px"
+		apply="com.c63.controllers.CrearLoteApremio_Controlador">
+		
+		<div width="100%">
+			<vbox spacing="10px">
+				
+				<groupbox id="group" mold="3d" width="100%">
+					<caption image="/imagenes/recibos.gif"/>
+					<label value="Se han seleccionado ${arg.numRecibos} recibos que se incluirán en el lote." style="font-style: italic; font-size: 12px; font-weight: bold; color: #0E3A99;" />
+					<grid id="datos_box">
+						<columns sizable="true" style="padding:0 0;">
+							<column width="30%" style="font-size: 10px;font-weight: bold;" />
+							<column width="70%" style="font-size: 10px;font-weight: bold;" />
+						</columns>
+						<rows>
+							<row>
+								<label value="Cód. Lote:" style="font-style: italic; font-size: 12px; font-weight: bold; color: #0E3A99;" />
+								<textbox id="txtCodLote" maxlength="6" style="font-weight: bold;" width="80px"  />
+							</row>
+						</rows>
+					</grid>
+					<hbox pack="center" width="100%">
+						<button id="btnCrear" label="Crear Lote" image="/imagenes/ok.jpg" />
+						<button id="btnCancelar" label="Cancelar" image="/imagenes/close.png" />
+					</hbox>
+				</groupbox>
+			</vbox>
+		</div>
+	</window>
+</zk>

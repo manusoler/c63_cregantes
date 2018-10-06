@@ -1,0 +1,16 @@
+<zk>
+	<window id="listadoPdf" width="80%" title="Listado de Recibos del Lote en PDF" border="normal"
+		apply="com.c63.controllers.ListadoPdf_Controlador" closable="true" sizable="true">
+		<div>
+			<vbox width="100%">
+					<groupbox width="100%">
+						<iframe id="iframe" width="100%" height="400px"></iframe>
+					</groupbox>
+			</vbox>
+		</div>
+		<hbox width="100%" pack="center">
+			<button id="closeButton" image="/imagenes/close.png" label="Cerrar" />
+		</hbox>
+
+	</window>
+</zk>

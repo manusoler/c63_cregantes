@@ -1,0 +1,58 @@
+<?xel-method prefix="c" name="formatImporte" class="com.c63.comun.FormatElNumber" signature="java.lang.String formatImporte(double)"?>
+<zk>
+	<window id="winGestionBancosC63" title="Gestión de Bancos C63 - ${arg.c63banco}" border="normal" mode="modal" width="70%"
+		apply="com.c63.controllers.GestionBancosC63_Controlador">
+		 
+		<div width="100%">
+			<vbox spacing="10px">
+				
+				<groupbox id="groupGestBancoC63" mold="3d" width="100%">
+					<caption image="/imagenes/recibos.gif" />
+					<grid id="datos_box">
+						<columns sizable="true" style="padding:0 0;">
+							<column width="20%" style="font-size: 10px;font-weight: bold;" />
+							<column width="80%" style="font-size: 10px;font-weight: bold;" />
+						</columns>
+						<rows>
+							<row>
+								<label value="Entidad:" style="font-style: italic; font-size: 12px; font-weight: bold; color: #0E3A99;" />
+							<combobox id="lbEntidad" width="80px" model="@load(vm.colors)" selectedItem="@bind(vm.shirtColor)">
+								<template name="model">
+									<comboitem label="${each.codigoentidad}" />
+								</template>
+							</combobox>								
+							</row>
+						
+							<row>
+								<label value="Banco:" style="font-style: italic; font-size: 12px; font-weight: bold; color: #0E3A99;" />
+								<textbox id="txtBanco" maxlength="4" style="font-weight: bold;" width="40px" constraint="no empty" />
+							</row>
+							<row>
+								<label value="Sucursal:" style="font-style: italic; font-size: 12px; font-weight: bold; color: #0E3A99;" />
+								<textbox id="txtSucursal" maxlength="4" style="font-weight: bold;" width="40px"  />
+							</row>
+							<row>
+								<label value="Nombre:" style="font-style: italic; font-size: 12px; font-weight: bold; color: #0E3A99;" />
+								<textbox id="txtNombre" maxlength="40" style="font-weight: bold;" width="300px"  />
+							</row>
+							<row>
+								<label value="Cod INE:" style="font-style: italic; font-size: 12px; font-weight: bold; color: #0E3A99;" />
+								<textbox id="txtCodINE" maxlength="6" style="font-weight: bold;" width="60px" constraint="no empty" />
+							</row>
+							<row>
+								<label value="IBAN:" style="font-style: italic; font-size: 12px; font-weight: bold; color: #0E3A99;" />
+								<textbox id="txtIBAN" maxlength="24" style="font-weight: bold;" width="220px" constraint="no empty" />
+							</row>
+						</rows>
+					</grid>
+					<hbox pack="center" width="100%">
+						<button id="btnModificar" label="Modificar" image="/imagenes/edit.png" />
+						<button id="btnGrabarNuevo" label="Grabar Nuevo" image="/imagenes/ok.jpg" />
+						<button id="btnGrabarModificacion" label="Grabar Modificacion" image="/imagenes/ok.jpg" />
+						<button id="btnCancelar" label="Cancelar" image="/imagenes/close.png" />
+					</hbox>
+				</groupbox>
+			</vbox>
+		</div>
+	</window>
+</zk>
